@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111; /* Dark black background */
+      color: #feaa2c; /* Red text color */
+    }
+
+    nav {
+      background-color: #333; /* Dark gray background */
+      overflow: hidden;
+      text-align: left; /* Align text to the left */
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out; /* Add smooth transitions */
+    }
+
+    nav a {
+      display: inline-block;
+      color: #fff; /* White text color */
+      text-align: center;
+      padding: 8px 14px;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: transform 0.2s ease-in-out, border 0.2s ease-in-out, border-radius 0.2s ease-in-out; /* Add smooth transitions */
+      border: 2px solid transparent; /* Transparent border by default */
+      border-radius: 10px; /* Rounded corners */
+    }
+
+    nav a#logo {
+      text-align: left; /* Align text to the left */
+      margin-right: auto; /* Move logo to the left */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 10px; /* Rounded corners */
+      padding: 8px 14px;
+    }
+
+    nav a#signin {
+      margin-left: auto; /* Move Sign In to the right */
+      color: #feaa2c; /* Yellow text color */
+    }
+
+    nav a:hover {
+      background-color: #555; /* Darker gray background on hover */
+      transform: scale(1.1); /* Increase size on hover */
+      border: 2px solid #feaa2c; /* Red border on hover */
+      border-radius: 5px; /* Adjust the radius for a rounded effect on hover */
+    }
+
+    /* Optional: Add a responsive design for smaller screens */
+    @media screen and (max-width: 600px) {
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Style for the content below the navbar */
+    .content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15vh 20px; /* Adjust padding for Welcome to GuruTech section */
+      text-align: center;
+    }
+
+    /* Optional: Add some styles for the image container */
+    .image-container {
+      border: 5px solid #feaa2c; /* Yellow border color */
+      border-radius: 50%; /* Make the container circular */
+      overflow: hidden; /* Hide overflow to maintain circular shape */
+      width: 400px; /* Set a fixed width for the circular container */
+      height: 400px; /* Set a fixed height for the circular container */
+      display: inline-block;
+    }
+
+    /* Optional: Add some styles for the circular image */
+    .circular-image {
+      max-width: 100%;
+      height: 100%;
+      border-radius: 50%; /* Make the image circular */
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Additional Features */
+    .features {
+      padding: 10px 20px;
+      background-color: #111; /* Dark black background */
+      text-align: center;
+      margin-top: -20px; /* Move features section upward */
+    }
+
+    .features h2 {
+      color: #feaa2c; /* Red text color */
+    }
+
+    .features p {
+      color: #fff; /* White text color */
+    }
+
+    /* Career Section */
+    .career {
+      position: relative;
+      padding: 10px 20px; /* Adjust padding for Career Opportunities section */
+      background-color: #111; /* Dark black background */
+      text-align: center;
+    }
+
+    .career h2 {
+      color: #feaa2c; /* Red text color */
+    }
+
+    .career p {
+      color: #fff; /* White text color */
+    }
+
+    /* Container and Items */
+    .container {
+      display: flex;
+      overflow: hidden;
+      max-width: 61%; /* Adjust the maximum width as needed */
+      margin: 0 auto;
+      border: 2px solid #fff; /* White border color */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Box shadow for a subtle effect */
+      scroll-behavior: smooth; /* Smooth scrolling for the container */
+      background-color: #feaa2c;
+    }
+
+    .item {
+      flex: 0 0 auto;
+      width: 200px; /* Adjust the width as needed */
+      height: 200px; /* Adjust the height as needed */
+      background-color: #fff; /* White background */
+      margin-right: 25px;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+      background-color: #111;
+      color: #feaa2c; /* Red text color */
+      transition: transform 0.3s ease-in-out; /* Add smooth transition for the hover effect */
+      text-decoration: none; /* Remove underlines */
+    }
+
+    .item img {
+      max-width: 100%;
+      height: auto;
+      max-height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .item:hover {
+      transform: scale(1.1); /* Increase size on hover */
+    }
+
+    /* Navigation Arrows */
+    .arrows {
+      position: absolute;
+      top: 66%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .arrow {
+      cursor: pointer;
+      font-size: 24px;
+      color: #feaa2c; /* Yellow text color */
+      background-color: #111; /* Dark black background */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 50%; /* Circle shape */
+      padding: 10px;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .arrow:hover {
+      background-color: #feaa2c; /* Yellow background on hover */
+      color: #111; /* Dark black text color on hover */
+    }
+
+    .arrow.left {
+      margin-left: 200px;
+    }
+
+    .arrow.right {
+      margin-right: 240px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" id="logo">GuruTech</a>
+  <a href="#aboutus">About Us</a>
+  <a href="#courses">Courses</a>
+  <a href="#career">Career</a>
+  <a href="#blog">Blog</a>
+  <a href="signin.html" id="signin">Sign In</a>
+</nav>
+
+<!-- Content below the navbar -->
+<div class="content">
+  <div>
+    <h1 style="font-size: 60px;">Welcome to GuruTech</h1>
+    <p style="font-size: 20px;">Unleashing Technological Wisdom for a Smarter Tomorrow.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://t3.ftcdn.net/jpg/02/97/29/06/360_F_297290656_2VreOHvYSCzMaFoItvVGLSOvfXJNR4XJ.jpg" alt="Your Image" class="circular-image">
+  </div>
+</div>
+
+<!-- Additional Features -->
+<div class="features">
+  <h2>Our Features</h2>
+  <p>Explore the unique features that make GuruTech exceptional.</p>
+  <!-- Add more features as needed -->
+</div>
+
+<!-- Career Section -->
+<div class="career">
+  <h2>Career Opportunities</h2>
+  <p>Join our team and shape the future of education.</p>
+  <!-- Add career-related content as needed -->
+
+  <!-- Container and Items -->
+  <div class="container">
+    <a href="#devops" class="item">
+      <img src="https://tse1.mm.bing.net/th?id=OIP.zmyz2g0mW9f3NiDQ8DJbegHaEK&pid=Api&P=0&h=180" alt="Item 1 Image">
+      <h3>DevOps</h3>
+    </a>
+    <a href="#datascience" class="item">
+      <img src="https://technonguide.com/wp-content/uploads/2021/05/data-science-course.jpg" width="190px" height="100px" alt="Item 2 Image">
+      <h3>Data Science</h3>
+    </a>
+    <a href="#aws" class="item">
+      <img src="https://wallpaperaccess.com/full/3209833.jpg" alt="Item 3 Image">
+      <h3>Amazon web services</h3>
+    </a>
+    <a href="#ai" class="item">
+      <img src="https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1364859722/image_1364859722.jpg?io=getty-c-w1280" alt="Item 4 Image" style="height: 100px;width: 190px;">
+      <h3>Aritifical Intelligence</h3>
+    </a>
+    <a href="#fullstack" class="item">
+      <img src="https://blog.eduonix.com/wp-content/uploads/2018/09/Full-Stack-Developer.jpg" alt="Item 5 Image">
+      <h3>Full-Stack-Developer</h3>
+    </a>
+    <a href="#python" class="item">
+      <img src="https://railsware.com/blog/wp-content/uploads/2018/10/Python-for-Data-Science-illustration.jpg" alt="Item 6 Image">
+      <h3>Python for DataScience</h3>
+    </a>
+    <a href="#ml" class="item">
+      <img src="http://supplychainbeyond.com/wp-content/uploads/2017/09/what-is-machine-learning.jpg" alt="Item 7 Image">
+      <h3>Machince Learning</h3>
+    </a>
+    <a href="#cybersecurity" class="item">
+      <img src="https://www.softgudam.com/wp-content/uploads/2020/07/Protect-Your-Business-From-Cyber-Attacks.jpg" alt="Item 8 Image" style="height: 100px;width: 190px;">
+      <h3>Cyber Security</h3>
+    </a>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <div class="arrows">
+    <div class="arrow left" onclick="scrollContainer(-1)">❮</div>
+    <div class="arrow right" onclick="scrollContainer(1)">❯</div>
+  </div>
+</div>
+
+<script>
+  function scrollContainer(direction) {
+    const container = document.querySelector('.container');
+    const scrollAmount = 875; // Adjust the scroll amount as needed
+    container.scrollLeft += direction * scrollAmount;
+  }
+</script>
+
+</body>
+</html>

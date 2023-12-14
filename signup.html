@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111; /* Dark black background */
+      color: #feaa2c; /* Red text color */
+    }
+
+    nav {
+      background-color: #333; /* Dark gray background */
+      overflow: hidden;
+      text-align: left; /* Align text to the left */
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out; /* Add smooth transitions */
+    }
+
+    nav a {
+      display: inline-block;
+      color: #fff; /* White text color */
+      text-align: center;
+      padding: 8px 14px;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: transform 0.2s ease-in-out, border 0.2s ease-in-out, border-radius 0.2s ease-in-out; /* Add smooth transitions */
+      border: 2px solid transparent; /* Transparent border by default */
+      border-radius: 10px; /* Rounded corners */
+    }
+
+    nav a#logo {
+      text-align: left; /* Align text to the left */
+      margin-right: auto; /* Move logo to the left */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 10px; /* Rounded corners */
+      padding: 8px 14px;
+    }
+
+    nav a#Sign in {
+      margin-left: auto; /* Move Sign In to the right */
+      color: #feaa2c; /* Yellow text color */
+    }
+
+    nav a:hover {
+      background-color: #555; /* Darker gray background on hover */
+      transform: scale(1.1); /* Increase size on hover */
+      border: 2px solid #feaa2c; /* Red border on hover */
+      border-radius: 5px; /* Adjust the radius for a rounded effect on hover */
+    }
+
+    form {
+      max-width: 400px;
+      width: 100%;
+      margin: 80px auto 0; /* Adjusted margin for the form */
+      padding: 20px;
+      background-color: #111; /* Dark black background */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Box shadow for a subtle effect */
+      text-align: center;
+      color: #fff; /* White text color */
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      background-color: #333; /* Dark gray background */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 5px; /* Rounded corners */
+      color: #fff; /* White text color */
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: #feaa2c; /* Yellow background color */
+      border: none;
+      border-radius: 5px; /* Rounded corners */
+      color: #111; /* Dark black text color */
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555; /* Darker gray background on hover */
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 33%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .Sign in-link {
+      text-align: center;
+      margin-top: 15px;
+      color: #feaa2c;
+    }
+
+    .Sign in-link a {
+      color: #feaa2c;
+      text-decoration: none;
+    }
+
+    .Sign in-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" id="logo">Gurutech</a>
+  <a href="#aboutus">About Us</a>
+  <a href="#courses">Courses</a>
+  <a href="#career">Career</a>
+  <a href="#blog">Blog</a>
+  <a href="signin.html" id="signin">Signin</a>
+</nav>
+
+<form>
+  <h2>Sign Up for GuruTech</h2>
+
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="password">Password:</label>
+  <div style="position: relative;">
+    <input type="password" id="password" name="password" required>
+    <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+  </div>
+
+  <label for="confirmPassword">Confirm Password:</label>
+  <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+  <button type="submit" onclick="validatePassword()">Sign Up</button>
+
+  <div class="signin-link">
+    Already have an account? <a href="signin.html">Signin</a>
+  </div>
+</form>
+
+<script>
+  function togglePassword(inputId) {
+    const passwordInput = document.getElementById(inputId);
+    const type = passwordInput.type === 'password' ? 'text' : 'password';
+    passwordInput.type = type;
+  }
+
+  function validatePassword() {
+    const passwordInput = document.getElementById('password');
+    const password = passwordInput.value;
+
+    // Add your password validation logic here
+    const isValid = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/.test(password);
+
+    if (!isValid) {
+      alert('Password must be 8 characters long, include 1 capital letter, 1 small letter, 1 special symbol, and numbers.');
+      event.preventDefault(); // Prevent form submission if the password is not valid
+    }
+  }
+</script>
+
+</body>
+</html>

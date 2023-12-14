@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111; /* Dark black background */
+      color: #feaa2c; /* Red text color */
+    }
+
+    nav {
+      background-color: #333; /* Dark gray background */
+      overflow: hidden;
+      text-align: left; /* Align text to the left */
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out; /* Add smooth transitions */
+    }
+
+    nav a {
+      display: inline-block;
+      color: #fff; /* White text color */
+      text-align: center;
+      padding: 8px 14px;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: transform 0.2s ease-in-out, border 0.2s ease-in-out, border-radius 0.2s ease-in-out; /* Add smooth transitions */
+      border: 2px solid transparent; /* Transparent border by default */
+      border-radius: 10px; /* Rounded corners */
+    }
+
+    nav a#logo {
+      text-align: left; /* Align text to the left */
+      margin-right: auto; /* Move logo to the left */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 10px; /* Rounded corners */
+      padding: 8px 14px;
+    }
+
+    nav a#signin {
+      margin-left: auto; /* Move Sign In to the right */
+      color: #feaa2c; /* Yellow text color */
+    }
+
+    nav a:hover {
+      background-color: #555; /* Darker gray background on hover */
+      transform: scale(1.1); /* Increase size on hover */
+      border: 2px solid #feaa2c; /* Red border on hover */
+      border-radius: 5px; /* Adjust the radius for a rounded effect on hover */
+    }
+
+    form {
+      max-width: 400px;
+      width: 100%;
+      margin: 80px auto 0; /* Adjusted margin for the form */
+      padding: 20px;
+      background-color: #111; /* Dark black background */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Box shadow for a subtle effect */
+      text-align: center;
+      color: #fff; /* White text color */
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      background-color: #333; /* Dark gray background */
+      border: 2px solid #feaa2c; /* Yellow border color */
+      border-radius: 5px; /* Rounded corners */
+      color: #fff; /* White text color */
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: #feaa2c; /* Yellow background color */
+      border: none;
+      border-radius: 5px; /* Rounded corners */
+      color: #111; /* Dark black text color */
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555; /* Darker gray background on hover */
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+    .signin-link {
+      text-align: center;
+      margin-top: 15px;
+      color: #feaa2c;
+    }
+
+    .signin-link a {
+      color: #feaa2c;
+      text-decoration: none;
+    }
+
+    .signin-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" id="logo">GuruTech</a>
+    <a href="#aboutus">About Us</a>
+    <a href="#courses">Courses</a>
+    <a href="#career">Career</a>
+    <a href="#blog">Blog</a>
+    <a href="signin.html" id="signin">Sign In</a>
+  </nav>
+
+  <form>
+    <h2>Sign In to GuruTech</h2>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Sign In</button>
+
+    <div class="signin-link">
+      Don't have an account? <a href="signup.html">Sign Up</a><br>
+      <a href="#forgotPassword">Forgot password?</a>
+    </div>
+  </form>
+
+</body>
+
+</html>
